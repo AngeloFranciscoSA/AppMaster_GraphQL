@@ -55,6 +55,13 @@ class SuperHero{
             return _return
         }
     }
+
+    async insertSuperHero( args: any ){
+        const heroData = this.createSuperHeroObject()
+        const awaitData = await heroData
+
+        
+    }
 }
 
 export default SuperHero

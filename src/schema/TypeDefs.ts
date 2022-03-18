@@ -59,13 +59,69 @@ const typeDefs = gql`
         lg: String
     }
 
+    input createSuperHero{
+        name: String!
+        slug: String
+        powerstats: createPowerstats
+        appearance: createAppearance
+        biography: createBiography
+        work: createWork
+        connections: createConnections
+        images: createImages
+    }
+
+    input createPowerstats{
+        intelligence: Int
+        strength: Int
+        speed: Int
+        durability: Int
+        power: Int
+        combat: Int
+    }
+
+    input createAppearance{
+        gender: String
+        race: String
+        height: [String]
+        weight: [String]
+        eyeColor: String
+        hairColor: String
+    }
+
+    input createBiography{
+        fullname: String
+        alterEgos: String
+        aliases: [String]
+        placeOfBirth: String
+        firstAppearance: String
+        publisher: String
+        alignment: String
+    }
+
+    input createWork{
+        occupation: String
+        base: String
+    }
+
+    input createConnections{
+        groupAffiliation: String
+        relatives: String
+    }
+
+    input createImages{
+        xs: String
+        sm: String
+        md: String
+        lg: String
+    }
+
     type Query {
         listHeroes(limit: Int, order: String): [SuperHero]
         searchHeroes(query: String, filter: String): [SuperHero]
     }
 
     type Mutation{
-        createHero(name: String!): SuperHero
+        createHero(data: createSuperHero): SuperHero
     }
 
 `

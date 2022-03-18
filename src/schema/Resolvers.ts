@@ -32,6 +32,12 @@ const resolvers: Object = {
             const _return = await SuperHeroClass.searchSuperHeros(args.query, args.filter)
             return _return
         }
+    },
+
+    Mutation: {
+        createHero: async (root: any , args: any) => {
+            return SuperHeroClass.insertSuperHero(args)
+        }
     }
 }
 
