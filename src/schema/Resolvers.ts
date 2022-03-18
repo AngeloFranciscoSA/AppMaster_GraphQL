@@ -8,7 +8,7 @@ const connectionsFilter = ["groupAffiliation", "relatives"]
 
 const resolvers: Object = {
     Query: {
-        getAllSuperHeros: async (root: any, args: any) => {
+        listHeroes: async (root: any, args: any) => {
 
             const { limit, order } = args
             let _return =  await SuperHeroClass.getSuperHeros()
@@ -28,7 +28,7 @@ const resolvers: Object = {
             return _return;
         },
 
-        searchSuperHeros: async (root: any, args: any) => {
+        searchHeroes: async (root: any, args: any) => {
             const _return = await SuperHeroClass.searchSuperHeros(args.query, args.filter)
             return _return
         }

@@ -60,12 +60,12 @@ const typeDefs = gql`
     }
 
     type Query {
-        getAllSuperHeros(limit: Int, order: String): [SuperHero]
-        searchSuperHeros(query: String, filter: String): [SuperHero]
+        listHeroes(limit: Int, order: String): [SuperHero]
+        searchHeroes(query: String, filter: String): [SuperHero]
     }
 
     type Mutation{
-        createSuperHero(name: String!): SuperHero
+        createHero(name: String!): SuperHero
     }
 
 `
