@@ -16,7 +16,7 @@ class SuperHero{
             return this._superHeroData
         }
 
-        axios.get(this.baseURL + 'all.json')
+        await axios.get(this.baseURL + 'all.json')
         .then(response => {
             this._superHeroData = response.data
         })
@@ -34,7 +34,7 @@ class SuperHero{
     async searchSuperHeros(query: String , filter: String){
         const heroData = this.createSuperHeroObject()
         const awaitData = await heroData
-
+        
         const allFilters = ['name', 'appearance', 'biography', 'work', 'connections']
 
         if(filter !== undefined){
@@ -42,7 +42,7 @@ class SuperHero{
         }else{ 
 
             let _return = {}
-
+            
             for (let i = 0; i < allFilters.length; i++) {
                 const _search: Object = search(awaitData, query, allFilters[i])
                 if(_search !== null){

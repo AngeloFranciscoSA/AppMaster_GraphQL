@@ -10,7 +10,6 @@ const resolvers: Object = {
 
         searchSuperHeros: async (root: any, args: any) => {
             const _return = await SuperHeroClass.searchSuperHeros(args.query, args.filter)
-            console.log(_return)
             return _return
         }
     }
