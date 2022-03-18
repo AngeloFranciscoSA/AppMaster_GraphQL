@@ -27,8 +27,8 @@ class SuperHero{
         return this._superHeroData
     }
 
-    getSuperHeros(){
-        return this.createSuperHeroObject()
+    async getSuperHeros(){
+        return await this.createSuperHeroObject()
     }   
 
     async searchSuperHeros(query: String , filter: String){
