@@ -60,7 +60,7 @@ const typeDefs = gql`
     }
 
     type Query {
-        getAllSuperHeros(limit: String, order: String): [SuperHero]
+        getAllSuperHeros(limit: Int, order: String): [SuperHero]
         searchSuperHeros(query: String, filter: String): [SuperHero]
     }
 
