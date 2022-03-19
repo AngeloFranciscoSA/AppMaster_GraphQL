@@ -1,4 +1,5 @@
 import { ApolloServer } from "apollo-server";
+require("dotenv").config();
 
 
 import typeDefs  from "./schema/TypeDefs";
@@ -9,8 +10,12 @@ async function main(typeDefs: any, resolvers: any) {
             typeDefs,
             resolvers,
         });
-    const { url } = await server.listen({ port: 3000 });
-    console.log(`Server ready at ${url}`);
+    await server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+        console.log(`
+          🚀  Server is ready at ${url}
+          📭  Query at 
+        `);
+      });
 }
 
 
