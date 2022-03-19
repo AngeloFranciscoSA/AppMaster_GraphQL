@@ -1,36 +1,23 @@
 import SuperHero from "../SuperHeros";
+import { orderFilter } from "../util";
 
 const SuperHeroClass = new SuperHero();
-const appearanceFilter = ["gender", "race", "height", "eyeColor", "hairColor"];
-const biographyFilter = [
-  "fullName",
-  "alterEgos",
-  "aliases",
-  "placeOfBirth",
-  "firstAppearance",
-  "publisher",
-  "alignment",
-];
-const workFilter = ["occupation", "base"];
-const connectionsFilter = ["groupAffiliation", "relatives"];
 
 const resolvers: Object = {
   Query: {
     listHeroes: async (root: any, args: any) => {
       const { limit, order } = args;
-      let _return = await SuperHeroClass.getSuperHeros();
+      let _return: any = await SuperHeroClass.getSuperHeros();
 
       if (limit !== undefined) {
         _return = _return.slice(0, limit);
       }
 
-      // if(order !== undefined){
-
-      //     _return = _return.sort( (x: any, y: any) => {
-      //         x[order].localeCompare(y[order])
-      //         return 1
-      //     })
-      // }
+      if (order !== undefined) {
+        _return = _return.sort((x: any, y: any): any => {
+          return orderFilter(x, y, order);
+        });
+      }
 
       return _return;
     },

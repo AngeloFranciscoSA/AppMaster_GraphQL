@@ -1,5 +1,5 @@
 import axios from "axios";
-import search from "./util";
+import { search } from "./util";
 
 class SuperHero {
   _superHeroData: any[] = [];
@@ -66,7 +66,6 @@ class SuperHero {
 
     const lastElementArray = awaitData.pop();
     const lastElement = lastElementArray.id + 1;
-    
 
     const _args = {
       id: lastElement,

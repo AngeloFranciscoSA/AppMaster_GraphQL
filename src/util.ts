@@ -54,4 +54,28 @@ function search(data: any[], args: String, filter: any): any {
     return null
 }
 
-export default search;
+function orderFilter(x:any, y:any, order: any): any{
+
+  const filters: any = {
+    appearance: appearanceFilter,
+    biography: biographyFilter,
+    work: workFilter,
+    connections: connectionsFilter
+  }
+
+  for(let filter in filters){
+
+    if(filters[filter].includes(order)){
+      if(x.work[order] > y.work[order]){
+        return 1;
+      }
+      if(x.work[order] < y.work[order]){
+          return -1;
+      }
+      return 0;
+    }
+    
+  }
+}
+
+export {search, orderFilter};
