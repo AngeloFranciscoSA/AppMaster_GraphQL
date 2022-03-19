@@ -1,6 +1,6 @@
 ## Informações sobre o Projeto
 
-Este é um projeto para seleção da AppMaster, para mais informações da empresa acessar esse [link](https://www.appmasters.io/)
+Este é um projeto para seleção da AppMaster, para mais informações da empresa acessar esse [link](https://www.appmasters.io/) ou por aqui https://www.appmasters.io/.
 
 O Objetivo deste projeto é criar uma API em GraphQL de Super Herois.
 
