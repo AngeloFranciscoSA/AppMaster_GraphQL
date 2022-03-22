@@ -123,7 +123,7 @@ class SuperHero {
     };
 
     this._superHeroData.push(_args);
-    return this._superHeroData;
+    return _args;
   }
 }
 
