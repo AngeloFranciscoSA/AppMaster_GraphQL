@@ -120,7 +120,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createHero(data: createSuperHero): [SuperHero]
+    createHero(data: createSuperHero): SuperHero
   }
 `;
 export default typeDefs;
