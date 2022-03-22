@@ -25,10 +25,8 @@ function search(data: any[], args: String, filter: any): any {
 
       appearanceFilter.forEach((filter: any) => {
         const result = data.filter((hero: any) => {
-
-          return hero.appearance[filter] || ""
-            .toLowerCase()
-            .includes(args.toLowerCase());
+          const _heroAppearance = hero.appearance[filter] || "";
+          return _heroAppearance.includes(args.toLowerCase());
         });
 
         appearance = { ...appearance, ...result };
@@ -40,12 +38,9 @@ function search(data: any[], args: String, filter: any): any {
       let biography: Object = {};
 
       biographyFilter.forEach((filter: any) => {
-
         const result = data.filter((hero: any) => {
-
-          return hero.biography[filter] || ""
-            .toLowerCase()
-            .includes(args.toLowerCase());
+          const _heroBiography = hero.biography[filter] || "";
+          return _heroBiography.includes(args.toLowerCase());
         });
 
         biography = { ...biography, ...result };
@@ -57,8 +52,11 @@ function search(data: any[], args: String, filter: any): any {
       let work: Object = {};
       workFilter.forEach((filter: any) => {
         const result = data.filter((hero: any) => {
-          return hero.work[filter].toLowerCase().includes(args.toLowerCase());
+
+          const _heroWork = hero.work[filter] || "";
+          return _heroWork.includes(args.toLowerCase());
         });
+
         work = { ...work, ...result };
       });
       return Object.values(work);
@@ -68,8 +66,11 @@ function search(data: any[], args: String, filter: any): any {
       let connections: Object = {};
       connectionsFilter.forEach((filter: any) => {
         const result = data.filter((hero: any) => {
-          hero.connections[filter].toLowerCase().includes(args.toLowerCase());
+
+          const _heroConnections = hero.connections[filter] || "";
+          return _heroConnections.includes(args.toLowerCase());
         });
+
         connections = { ...connections, ...result };
       });
       return Object.values(connections);
