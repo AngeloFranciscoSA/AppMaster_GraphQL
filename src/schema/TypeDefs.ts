@@ -61,12 +61,12 @@ const typeDefs = gql`
   input createSuperHero {
     name: String!
     slug: String
-    powerstats: [createPowerstats!]
-    appearance: [createAppearance!]
-    biography: [createBiography!]
-    work: [createWork!]
-    connections: [createConnections!]
-    images: [createImages!]
+    powerstats: [createPowerstats]
+    appearance: [createAppearance]
+    biography: [createBiography]
+    work: [createWork]
+    connections: [createConnections]
+    images: [createImages]
   }
 
   input createPowerstats {

@@ -66,6 +66,13 @@ class SuperHero {
 
     const lastElementArray = awaitData.pop();
     const lastElement = lastElementArray.id + 1;
+    
+    const powerstats: any = args.data.powerstats === undefined ? {} : args.data.powerstats[0];
+    const appearance: any = args.data.appearance === undefined ? {} : args.data.appearance[0]
+    const biography: any = args.data.biography === undefined ? {} : args.data.biography[0]
+    const work: any = args.data.work === undefined ? {} : args.data.work[0]
+    const connections: any = args.data.connections === undefined ? {} : args.data.connections[0]
+    const images: any = args.data.images === undefined ? {} : args.data.images[0]
 
     const _args = {
       id: lastElement,
@@ -75,48 +82,48 @@ class SuperHero {
           ? `${lastElement}-${args.data.name}`
           : args.data.slug,
       powerstats: {
-        intelligence: args.data.powerstats.intelligence,
-        strength: args.data.powerstats.strength,
-        speed: args.data.powerstats.speed,
-        durability: args.data.powerstats.durability,
-        power: args.data.powerstats.power,
-        combat: args.data.powerstats.combat,
+        intelligence: powerstats.intelligence,
+        strength: powerstats.strength,
+        speed: powerstats.speed,
+        durability: powerstats.durability,
+        power: powerstats.power,
+        combat: powerstats.combat,
       },
       appearance: {
-        gender: args.data.appearance.gender,
-        race: args.data.appearance.race,
-        height: args.data.appearance.height,
-        weight: args.data.appearance.weight,
-        eyeColor: args.data.appearance.eyeColor,
-        hairColor: args.data.appearance.hairColor,
+        gender: appearance.gender,
+        race: appearance.race,
+        height: appearance.height,
+        weight: appearance.weight,
+        eyeColor: appearance.eyeColor,
+        hairColor: appearance.hairColor,
       },
       biography: {
-        fullname: args.data.biography.fullname,
-        alterEgos: args.data.biography.alterEgos,
-        aliases: args.data.biography.aliases,
-        placeOfBirth: args.data.biography.placeOfBirth,
-        firstAppearance: args.data.biography.firstAppearance,
-        publisher: args.data.biography.publisher,
-        alignment: args.data.biography.alignment,
+        fullname: biography.fullname,
+        alterEgos: biography.alterEgos,
+        aliases: biography.aliases,
+        placeOfBirth: biography.placeOfBirth,
+        firstAppearance: biography.firstAppearance,
+        publisher: biography.publisher,
+        alignment: biography.alignment,
       },
       work: {
-        occupation: args.data.work.occupation,
-        base: args.data.work.base,
+        occupation: work.occupation,
+        base: work.base,
       },
       connections: {
-        groupAffiliation: args.data.connections.groupAffiliation,
-        relatives: args.data.connections.relatives,
+        groupAffiliation: connections.groupAffiliation,
+        relatives: connections.relatives,
       },
       images: {
-        xs: args.data.images.xs,
-        sm: args.data.images.sm,
-        md: args.data.images.md,
-        lg: args.data.images.lg,
+        xs: images.xs,
+        sm: images.sm,
+        md: images.md,
+        lg: images.lg,
       },
     };
 
-    awaitData.push(_args);
-    return awaitData;
+    this._superHeroData.push(_args);
+    return this._superHeroData;
   }
 }
 
